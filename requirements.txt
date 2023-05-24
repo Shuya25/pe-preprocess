@@ -1,0 +1,106 @@
+anyio==3.1.0
+argon2-cffi==20.1.0
+async-generator==1.10
+attrs @ file:///home/bali/.cache/pypoetry/artifacts/9e/6f/95/f4bd71c5acad2b4bbea55d3023e8221fce07e7df6b9da06439c5921b89/attrs-21.2.0-py2.py3-none-any.whl
+autopep8==1.5.7
+Babel==2.9.1
+backcall==0.2.0
+bleach==3.3.0
+certifi==2021.5.30
+cffi==1.14.5
+chardet==4.0.0
+click @ file:///home/bali/.cache/pypoetry/artifacts/6c/a8/70/ce81568bc99bf76fa5886e02d1184a45857a597eab24c587037a7a667f/click-8.0.1-py3-none-any.whl
+cycler @ file:///home/bali/.cache/pypoetry/artifacts/9c/d7/b0/dfa9603bb99384947661c58e61ad1b66acd1a2ba6f0d767c9d85a6c1f0/cycler-0.10.0-py2.py3-none-any.whl
+decorator @ file:///home/bali/.cache/pypoetry/artifacts/e0/49/17/9a08edb2207e858afcdec201eff4a7198829cbcdbe7950f54a0bc9dd7e/decorator-4.4.2-py2.py3-none-any.whl
+defusedxml==0.7.1
+Deprecated @ file:///home/bali/.cache/pypoetry/artifacts/2a/39/6b/1122c72ecf994c1a0c02bf71053ce408b35e8e4e1ac08f0405e7b99c02/Deprecated-1.2.12-py2.py3-none-any.whl
+entrypoints==0.3
+Flask==2.0.3
+graphviz @ file:///home/bali/.cache/pypoetry/artifacts/1b/f6/63/ed0c306e63b166c342460aea4509fccaec3fce72f6108adc9d5cd03220/graphviz-0.16-py2.py3-none-any.whl
+humanize @ file:///home/bali/.cache/pypoetry/artifacts/0e/5d/bd/74a03e0994241b1c1eb2f715c6b17df0604047681dbd598b8d743249ae/humanize-3.6.0-py3-none-any.whl
+idna==2.10
+imageio @ file:///home/bali/.cache/pypoetry/artifacts/a3/b3/d6/d3f986afa384a15ef082be0ade465cb35241652ab9b767e9156a9e67ad/imageio-2.9.0-py3-none-any.whl
+importlib-metadata==4.5.0
+ipykernel==5.5.5
+ipython==7.24.1
+ipython-genutils==0.2.0
+itsdangerous==2.1.1
+jedi==0.18.0
+Jinja2==3.0.1
+joblib @ file:///home/bali/.cache/pypoetry/artifacts/31/29/01/db4dcbbea55316357053572689a218c92920416d025fcdf575ed68d0c9/joblib-1.0.1-py3-none-any.whl
+json5==0.9.5
+jsonschema==3.2.0
+jupyter-client==6.1.12
+jupyter-core==4.7.1
+jupyter-server==1.8.0
+jupyterlab==3.0.16
+jupyterlab-pygments==0.1.2
+jupyterlab-server==2.6.0
+kiwisolver @ file:///home/bali/.cache/pypoetry/artifacts/a5/fd/47/89200beb7a43d70a367de6fb92e4c94920131f5cf493970c9139130452/kiwisolver-1.3.1-cp37-cp37m-manylinux1_x86_64.whl
+MarkupSafe==2.0.1
+matplotlib @ file:///home/bali/.cache/pypoetry/artifacts/26/0e/16/40c555d5ae4ad785ec8b4ab4c1824beba3928778a6f13c9a38251931a1/matplotlib-3.4.2-cp37-cp37m-manylinux1_x86_64.whl
+matplotlib-inline==0.1.2
+mistune==0.8.4
+more-itertools @ file:///home/bali/.cache/pypoetry/artifacts/1a/ac/f6/059797e52fa58c81346e036d8d6461db351e4b5c56e5e45e2dc7a9d86e/more_itertools-8.8.0-py3-none-any.whl
+nbclassic==0.3.1
+nbclient==0.5.3
+nbconvert==6.0.7
+nbformat==5.1.3
+nest-asyncio==1.5.1
+networkx @ file:///home/bali/.cache/pypoetry/artifacts/ff/b3/40/200a3783f92ad25548ae633cb29b5b571d26a8bcdb082cf1c2f98de83f/networkx-2.5.1-py3-none-any.whl
+nibabel @ file:///home/bali/.cache/pypoetry/artifacts/49/ee/68/ff380a370be826807f7e10fe9f83db3782468b5938a2a83a70d736d3bb/nibabel-3.2.1-py3-none-any.whl
+notebook==6.4.0
+numpy @ file:///home/bali/.cache/pypoetry/artifacts/69/63/35/155c635cc7b0b3f4e2db7c9c59c69c99e9dd1434e665c13b8069b77f09/numpy-1.20.3-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl
+packaging @ file:///home/bali/.cache/pypoetry/artifacts/bf/c9/4b/d4c56a8494978126d690da73a04dfe71b97fa991e52f1634afc46f263e/packaging-20.9-py2.py3-none-any.whl
+pandas @ file:///home/bali/.cache/pypoetry/artifacts/75/43/78/0cb0940ee79d90c28e1127cb86eb607637b9a86bf11716c55e3dfc855d/pandas-1.2.4-cp37-cp37m-manylinux1_x86_64.whl
+pandocfilters==1.4.3
+parso==0.8.2
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow @ file:///home/bali/.cache/pypoetry/artifacts/33/2c/8b/596c551987d35a45fb1ec5bca0f603038a9d768054d449544befaede0e/Pillow-8.2.0-cp37-cp37m-manylinux1_x86_64.whl
+pluggy @ file:///home/bali/.cache/pypoetry/artifacts/bc/2e/c9/c04063460a7a68d2e59c9ea0a673de9d7930d54f788ed0510cdcf8aa78/pluggy-0.13.1-py2.py3-none-any.whl
+prometheus-client==0.11.0
+prompt-toolkit==3.0.18
+ptyprocess==0.7.0
+py @ file:///home/bali/.cache/pypoetry/artifacts/56/1d/e3/7dad75e1bf797fbd8937b37dd43d1656357c67a199e9f54d48535697d0/py-1.10.0-py2.py3-none-any.whl
+pycodestyle==2.7.0
+pycparser==2.20
+Pygments==2.9.0
+pyparsing @ file:///home/bali/.cache/pypoetry/artifacts/78/8b/03/23dc60df50f099a658dd13c86d7d94564b0b86bfa2ff61bc9595fb2fcb/pyparsing-2.4.7-py2.py3-none-any.whl
+pyrsistent==0.17.3
+pytest @ file:///home/bali/.cache/pypoetry/artifacts/a8/5a/78/7536a0da5c14b85637968b588ecf3bde096ce084658eab4180c94412fa/pytest-5.4.3-py3-none-any.whl
+python-dateutil @ file:///home/bali/.cache/pypoetry/artifacts/75/fa/68/ee8cf8ee229ebfb7947af0398184c39bbf243b7dc67ee46cca45938d09/python_dateutil-2.8.1-py2.py3-none-any.whl
+pytz @ file:///home/bali/.cache/pypoetry/artifacts/0c/d0/94/bbd2fee71be292862261e85cefb2231b1df628c7a0e5cb0170d8304963/pytz-2021.1-py2.py3-none-any.whl
+PyWavelets @ file:///home/bali/.cache/pypoetry/artifacts/8d/ab/74/9678819f453569800ea9c78ff88e34a06f8b0f01fb5ed44b14d62838b9/PyWavelets-1.1.1-cp37-cp37m-manylinux1_x86_64.whl
+pyzmq==22.1.0
+requests==2.25.1
+scikit-image @ file:///home/bali/.cache/pypoetry/artifacts/b0/5b/39/5d005e081ee35bcc68415e96ff251566a911522d997047ccf8157cc2f1/scikit_image-0.18.1-cp37-cp37m-manylinux1_x86_64.whl
+scikit-learn @ file:///home/bali/.cache/pypoetry/artifacts/19/77/af/a53372e62bef62838b91a951a88b008dafdde938b6d9e24a49358e84e5/scikit_learn-0.24.2-cp37-cp37m-manylinux2010_x86_64.whl
+scipy @ file:///home/bali/.cache/pypoetry/artifacts/e5/3e/a7/b69534d16cae11353f6db73f0fd62d7fc874f1640bd9d39fcc878d355e/scipy-1.6.1-cp37-cp37m-manylinux1_x86_64.whl
+seaborn @ file:///home/bali/.cache/pypoetry/artifacts/c4/22/fc/fd38d7636e30c13180546a01820a5bed4cc2b29e938cbb65b81f991276/seaborn-0.11.1-py3-none-any.whl
+Send2Trash==1.5.0
+SimpleITK @ file:///home/bali/.cache/pypoetry/artifacts/40/80/8f/6050f8cc03bb95e2bf48786168308a6cd5f6689a874e6a29445f8c8533/SimpleITK-1.2.4-cp37-cp37m-manylinux1_x86_64.whl
+six @ file:///home/bali/.cache/pypoetry/artifacts/47/d6/38/2a119d44e2e9b7250f9584910ca87b2b0a3895dd07686c39351d2bb536/six-1.16.0-py2.py3-none-any.whl
+sklearn==0.0
+sniffio==1.2.0
+terminado==0.10.0
+testpath==0.5.0
+threadpoolctl @ file:///home/bali/.cache/pypoetry/artifacts/10/d2/ec/b7f7827e6b16466e651b5a2ea18c64362ff41a15e221a88cc3064fb4dd/threadpoolctl-2.1.0-py3-none-any.whl
+tifffile @ file:///home/bali/.cache/pypoetry/artifacts/88/20/76/70b863102f02649aee3633687c4fd02e7b24fb3287cf402749a2ae215e/tifffile-2021.6.6-py3-none-any.whl
+toml==0.10.2
+torch==1.8.1+cu111
+torchio @ file:///home/bali/.cache/pypoetry/artifacts/3e/a6/9c/219315384203c5e16ede49edfc23ea3efb2532bd78225ebe387b8e8621/torchio-0.18.40-py2.py3-none-any.whl
+torchvision @ file:///home/bali/.cache/pypoetry/artifacts/09/3f/7e/c68656cce106803dad58bbe37993ad8c8549aa2362536e8ef70825dc00/torchvision-0.9.1-cp37-cp37m-manylinux1_x86_64.whl
+torchviz==0.0.2
+tornado==6.1
+tqdm @ file:///home/bali/.cache/pypoetry/artifacts/e9/9f/c5/46d11e4a8f2658f631e8fb771f2c7e7094d9a664fb3c38de7fbd03746f/tqdm-4.61.0-py2.py3-none-any.whl
+traitlets==5.0.5
+typing-extensions @ file:///home/bali/.cache/pypoetry/artifacts/68/42/ed/1c6d7e4b35b42abe4d1d4611b15db99c8b52648ee938f6261f03ef4b83/typing_extensions-3.10.0.0-py3-none-any.whl
+urllib3==1.26.5
+wcwidth @ file:///home/bali/.cache/pypoetry/artifacts/92/12/86/71fde978823bd982c22bd549b0ba688e372403269396c892ac8160f4fe/wcwidth-0.2.5-py2.py3-none-any.whl
+webencodings==0.5.1
+websocket-client==1.0.1
+Werkzeug==2.0.3
+wrapt==1.12.1
+WTForms==3.0.1
+zipp==3.4.1

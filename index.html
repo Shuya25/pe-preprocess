@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGSS かたむきアノテーションツール</title>
+    <style>
+
+button {
+    width: auto;
+    height: 30px;
+    font-size: large;
+}
+
+select {
+    width: 100px;
+    height: 30px;
+    border: 1px solid;
+    font-size: 30px;
+}
+
+.display_image {
+    text-align: center;
+}
+
+.canvas_with_button {
+    display: inline-block;
+}
+
+.log {
+    border-left:1px solid #ccc;
+    padding-left: 3%;
+    display: inline-block;
+}
+
+canvas {
+    border: 1px solid black;
+    background-size: cover;
+}
+
+    </style>
+</head>
+<body>
+    <h1>AGSS かたむきアノテーションツール</h1>
+    <p>
+        <button id="button-prev">前の画像</button>
+        <select id="select-image"></select>
+        <button id="button-next">次の画像</button>
+        （画像を変更すると、送信していない内容は破棄されます）
+    </p>
+
+    <div class="display_image">
+        <div class="canvas_with_button">
+            <div class="select_button">
+                <input type="radio" name="mode" id="radio-select-start" checked>
+                <label for="radio-select-start" style="background:#fab;">始点を選択</label>
+        
+                <input type="radio" name="mode" id="radio-select-end">
+                <label for="radio-select-end" style="background:#abf;">終点を選択</label>
+        
+                <input type="radio" name="mode" id="radio-done">
+                <label for="radio-done">線を確定</label>
+            </div>
+            <canvas width="512" height="512"></canvas>
+        </div>
+        <textarea disabled id="json-text" cols="20" rows="20"></textarea>
+        <div class="log">
+            <div>情報ログ</div>
+            <textarea disabled id="log-text" cols="50" rows="10"></textarea>
+            <div>
+                <input type="checkbox" id="toggle-old-label">
+                <label for="toggle-old-label">旧ラベルを表示する</label>
+            </div>
+            <textarea disabled id="old-json-text" cols="50" rows="14"></textarea>
+        </div>
+    </div>
+    <p>
+        <button id="button-send">確定して送信する（ディスクに書き込まれます）</button>
+        <button id="button-clear">クリア（現在のディスク上の内容に戻します）</button>
+    </p>
+    <p>
+
+    </p>
+    <script>
+
+const $ = document.querySelector.bind(document);
+
+const select = $('#select-image');
+const canvas = $('canvas');
+const jsonText = $('#json-text');
+
+const toggleOldLabel = $('#toggle-old-label');
+const oldJsonText = $('#old-json-text');
+
+const modeSelectStart = $('#radio-select-start');
+const modeSelectEnd = $('#radio-select-end');
+const modeDone = $('#radio-done');
+
+const logText = $('#log-text');
+
+const context = canvas.getContext('2d');
+
+
+for (let i = 0; i <= 616; i++) {
+    const option = document.createElement('option');
+    const fileName = i.toString().padStart(4, '0') + '.jpg';
+    option.value = fileName;
+    option.textContent = fileName;
+    select.appendChild(option);
+}
+
+jsonText.textContent = JSON.stringify({
+    start: {x: 0, y: 0},
+    ene: {x: 0, y: 0}
+}, null, 4);
+
+select.addEventListener('change', async () => {
+    modeSelectStart.checked = true;
+    await fetchData();
+    render();
+});
+
+$('#button-prev').addEventListener('click', async () => {
+    const index = select.selectedIndex;
+    if (index === 0) {
+        return;
+    }
+    select.options[index - 1].selected = true;
+    modeSelectStart.checked = true;
+    await fetchData();
+    render();
+});
+
+$('#button-next').addEventListener('click', async () => {
+    const index = select.selectedIndex;
+    if (index === 616) {
+        return;
+    }
+    select.options[index + 1].selected = true;
+    modeSelectStart.checked = true;
+    await fetchData();
+    render();
+});
+
+$('#button-send').addEventListener('click', async () => {
+    await sendData();
+});
+
+$('#button-clear').addEventListener('click', async () => {
+    clear();
+    await fetchData();
+    modeSelectStart.checked = true;
+    render();
+});
+
+toggleOldLabel.addEventListener('change', () => {
+    render();
+});
+
+canvas.addEventListener('click', (e) => {
+    if (modeSelectStart.checked) {
+        const labelData = JSON.parse(jsonText.textContent);
+        labelData.start[0].x = Math.floor(e.offsetX / 4);
+        labelData.start[0].y = Math.floor(e.offsetY / 4);
+        modeSelectEnd.checked = true;
+        jsonText.textContent = JSON.stringify(labelData, null, 4);
+        render();
+        return;
+    }
+    if (modeSelectEnd.checked) {
+        const labelData = JSON.parse(jsonText.textContent);
+        labelData.end[0].x = Math.floor(e.offsetX / 4);
+        labelData.end[0].y = Math.floor(e.offsetY / 4);
+        // modeDone.checked = true;
+        jsonText.textContent = JSON.stringify(labelData, null, 4);
+        sendData();
+        render();
+        return;
+    }
+});
+
+async function render() {
+    clear();
+    canvas.style.backgroundImage = `url(images/${select.value})`;
+    const labelData = JSON.parse(jsonText.textContent);
+    if (!(labelData.start[0].x * 4 === 0 && labelData.start[0].y * 4 === 0)) {
+        context.save();
+        context.fillStyle = '#fab';
+        context.fillRect(labelData.start[0].x * 4 - 10, labelData.start[0].y * 4 - 10, 20, 20);
+        context.restore();
+    }
+    if (!(labelData.end[0].x * 4 === 0 && labelData.end[0].y * 4 === 0)) {
+        context.save();
+        context.fillStyle = '#abf';
+        context.fillRect(labelData.end[0].x * 4 - 10, labelData.end[0].y * 4 - 10, 20, 20);
+        context.restore();
+    }
+    if (!(labelData.start[0].x * 4 === 0 && labelData.start[0].y * 4 === 0 || labelData.end[0].x * 4 === 0 && labelData.end[0].y * 4 === 0)) {
+        context.save();
+        context.strokeStyle = 'lime';
+        context.lineWidth = 3;
+        context.beginPath();
+        context.moveTo(labelData.start[0].x * 4, labelData.start[0].y * 4);
+        context.lineTo(labelData.end[0].x * 4, labelData.end[0].y * 4);
+        context.stroke();
+        context.restore();
+    }
+    if (toggleOldLabel.checked) {
+        const oldLabelData = JSON.parse(oldJsonText.textContent);
+        context.save();
+        context.strokeStyle = 'red';
+        context.lineWidth = 1;
+        context.beginPath();
+        context.moveTo(oldLabelData.start[0].x * 4, oldLabelData.start[0].y * 4);
+        context.lineTo(oldLabelData.end[0].x * 4, oldLabelData.end[0].y * 4);
+        context.stroke();
+        context.restore();
+    }
+}
+
+async function clear() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+async function fetchData() {
+    const fileName = select.value.split('.')[0] + '.json';
+    const data = await (await fetch('labels/' + fileName)).json();
+    jsonText.textContent = JSON.stringify(data, null, 4);
+    const oldData = await (await fetch('old_labels/' + fileName)).json();
+    oldJsonText.textContent = JSON.stringify(oldData, null, 4);
+}
+
+async function sendData() {
+    const fileName = select.value.split('.')[0] + '.json';
+    const response = await (await fetch('labels/' + fileName, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: jsonText.textContent
+    })).json();
+    logText.textContent += '\n' + response;
+}
+
+async function main() {
+    modeSelectStart.checked = true;
+    await fetchData();
+    render();
+}
+
+main();
+
+    </script>
+</body>
+</html>
